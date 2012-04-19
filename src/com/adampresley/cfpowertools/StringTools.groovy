@@ -126,6 +126,7 @@ class StringTools extends Base
 	*
 	* Parameters:
 	* 	source - Source string to iterate over (each line)
+	*  regex - Regex used to break each line into tokens, or columns
 	*	closureCode - The Groovy code to execute for each line in the string
 	*	params - An optional structure of parameters to send to the closure code
 	*/
