@@ -1,0 +1,12 @@
+26/03/12 13:22.52: java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method)
+	at com.naryx.tagfusion.cfm.sql.platform.java.queryBatchServer.run(Unknown Source)
+
+18/04/12 22:22.34: java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method)
+	at com.naryx.tagfusion.cfm.sql.platform.java.queryBatchServer.run(Unknown Source)
+
+18/04/12 23:04.07: java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method)
+	at com.naryx.tagfusion.cfm.sql.platform.java.queryBatchServer.run(Unknown Source)
+

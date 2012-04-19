@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Nov 2, 2010 1:09:02 PM                                                        
+
+	CF PowerTools
+	    
+	CF PowerTools is a set of components written in Groovy to make easier various
+	tasks for manipulating arrays, structures, strings, and more for ColdFusion.
+	This library fills in the "gaps" where ColdFusion has been lacking in more
+	advanced manipulation of basic data types.
+                   
+	Adam Presley
+-->
+<project name="cfpowertools" default="default">
+	<description>
+		Deployment script for the CF PowerTools library.
+	</description>
+
+	<taskdef name="groovyc" classname="org.codehaus.groovy.ant.Groovyc" classpath="./lib/groovy-all-1.8.6.jar" />
+
+	<property name="buildDir" value="build" />
+	<property name="distDir" value="dist" />
+	<property name="srcDir" value="src" />
+	<property name="libDir" value="lib" />
+
+	<property name="docsInput" value="src" />
+	<property name="docsOutput" value="dist/docs" />
+
+	<path id="project.classpath">
+		<fileset dir="${libDir}" includes="**/*.jar" />
+	</path>
+	
+	<target name="default" depends="buildDocs">
+	</target>
+
+	<target name="buildDocs" depends="buildJar">
+		<echo message="Building docs..." />
+		<mkdir dir="${docsOutput}" />
+
+		<exec executable="./naturaldocs/NaturalDocs" dir=".">
+			<arg value="-i" />
+			<arg value="${docsInput}" />
+			<arg value="-o" />
+			<arg value="HTML" />
+			<arg value="${docsOutput}" />
+			<arg value="-p" />
+			<arg value="${buildDir}" />
+			<arg value="-s" />
+			<arg value="Small" />
+			<arg value="-hl" />
+			<arg value="All" />
+		</exec>
+	</target>
+	
+	<target name="buildJar" depends="compile">
+		<echo message="Creating JAR file..." />
+		<mkdir dir="${distDir}" />
+		
+		<jar basedir="${buildDir}" destfile="${distDir}/cfpowertools.jar" />
+		<copy todir="${distDir}">
+			<fileset dir="${libDir}" />
+		</copy>
+
+		<copy todir="./examples/WEB-INF/lib" overwrite="true">
+			<fileset dir="${distDir}" />
+		</copy>
+	</target>
+
+	<target name="compile" depends="clean">
+		<mkdir dir="${buildDir}" />
+		<groovyc srcdir="${srcDir}" destdir="${buildDir}" classpathref="project.classpath" includeJavaRuntime="false" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${buildDir}" failonerror="false" includeemptydirs="true" />
+		<delete dir="${distDir}" failonerror="false" includeemptydirs="true" />
+	</target>
+	
+</project>
