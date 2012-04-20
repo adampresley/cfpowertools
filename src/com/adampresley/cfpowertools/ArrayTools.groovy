@@ -438,7 +438,7 @@ class ArrayTools extends Base
 	/**
 	* Function: removeRange
 	* Removes items from an array starting at startIndex, deleting up to
-	* endIndex (exclusive). If endIndex is zero or less, the function will only
+	* endIndex (inclusive). If endIndex is zero or less, the function will only
 	* delete the item at startIndex. If endIndex is less than or equal to 
 	* startIndex then the function will only delete the item at startIndex.
 	* If there are no items in the array the function simply returns.
@@ -481,7 +481,7 @@ class ArrayTools extends Base
 				  source.removeRange(actualStart, actualEnd)
 			  }
 			  else {
-				  (actualStart..<actualEnd).each {
+				  (actualStart..actualEnd).each {
 					  source.remove(actualStart)
 				  }
 			  }
