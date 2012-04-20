@@ -1,8 +1,8 @@
 #
 # Ignore all OpenBD bak file and work directories
 #
-./examples/WEB-INF/bluedragon/bluedragon.xml.bak.*
-./examples/WEB-INF/bluedragon/work/**
+examples/WEB-INF/bluedragon/bluedragon.xml.bak.*
+examples/WEB-INF/bluedragon/work/**
 
 
 #

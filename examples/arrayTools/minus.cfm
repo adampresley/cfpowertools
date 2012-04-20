@@ -1,4 +1,18 @@
-<cfset arrayTools = createObject("java", "com.adampresley.cfpowertools.Factory").getArrayTools() />
+<cfinclude template="../head.cfm" />
+
+<h1>ArrayTools.minus</h1>
+<hr />
+
+<p>
+	The <strong>minus</strong> method will take an array of pretty much anything followed
+	by another array containing items that match what you wish to remove from the first array.
+</p>
+
+<p>
+	In this example we will take a shopping cart array of structures and remove a single
+	item. The second array contains a structure matching the item we wish to remove from
+	the first array.
+</p>
 
 <cfset cart = [
 	{
@@ -42,15 +56,40 @@
 	}
 ] />
 
-<strong>Cart:</strong>
-<cfdump var="#cart#" expand="false" />
+<section class="well">
+	<strong>Cart:</strong>
+	<cfdump var="#cart#" expand="false" />
+</section>
 
-<strong>To Remove:</strong>
-<cfdump var="#toRemove#" expand="false" />
+<section class="well">
+	<strong>To Remove:</strong>
+	<cfdump var="#toRemove#" expand="false" />
+</section>
 
 <!---
 	Subtract two arrays
 --->
-<strong>Subtract Two Arrays:</strong>
-<cfset result = arrayTools.minus(cart, toRemove) />
-<cfdump var="#result#" />
+<cfset result = application.arrayTools.minus(cart, toRemove) />
+
+<section class="well">
+	<p>
+		Using the following line of code we will remove a complex item from the first array.
+
+		<pre>
+			&lt;cfset toRemove = [ 
+				{
+					productId = 2,
+					price = 9.99,
+					discounted = true,
+					name = "Widget 2"
+				}
+			] /&gt;
+
+			&lt;cfset result = application.arrayTools.minus(cart, toRemove) /&gt;
+		</pre>
+	</p>
+
+	<cfdump var="#result#" />
+</section>
+
+<cfinclude template="../foot.cfm" />

@@ -1,4 +1,21 @@
-<cfset arrayTools = createObject("java", "com.adampresley.cfpowertools.Factory").getArrayTools() />
+<cfinclude template="../head.cfm" />
+
+<h1>ArrayTools.groupBy</h1>
+<hr />
+
+<p>
+	The <strong>groupBy</strong> method will take an array of pretty much anything followed
+	by a bit of Groovy code and return a structure of grouped arrays. The Groovy
+	code must return a value to be used as your grouping key. This can be anything you
+	wish.
+</p>
+
+<p>
+	In this example we will take a shopping cart array of structures and group them by
+	discounted and non-discounted products. Each key, <strong>DISCOUNTED</strong>
+	and <strong>NOTDISCOUNTED</strong>, will contain an array of the items that fit
+	in each group.
+</p>
 
 <cfset cart = [
 	{
@@ -33,12 +50,26 @@
 	}
 ] />
 
-<strong>Cart:</strong>
-<cfdump var="#cart#" expand="false" />
+<section class="well">
+	<strong>Cart:</strong>
+	<cfdump var="#cart#" expand="false" />
+</section>
 
 <!---
 	Group the items in the cart by discount
 --->
-<strong>Group by the discounted flag:</strong>
-<cfset grouped = arrayTools.groupBy(cart, "(item.DISCOUNTED) ? 'DISCOUNTED' : 'NOTDISCOUNTED'") />
-<cfdump var="#grouped#" />
+<cfset grouped = application.arrayTools.groupBy(cart, "(item.DISCOUNTED) ? 'DISCOUNTED' : 'NOTDISCOUNTED'") />
+
+<section class="well">
+	<p>
+		Now using the following line of code we will create our two groups.
+
+		<pre>
+			&lt;cfset grouped = application.arrayTools.groupBy(cart, "(item.DISCOUNTED) ? 'DISCOUNTED' : 'NOTDISCOUNTED'") /&gt;
+		</pre>
+	</p>
+
+	<cfdump var="#grouped#" />
+</section>
+
+<cfinclude template="../foot.cfm" />

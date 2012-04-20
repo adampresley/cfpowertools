@@ -1,4 +1,20 @@
-<cfset arrayTools = createObject("java", "com.adampresley.cfpowertools.Factory").getArrayTools() />
+<cfinclude template="../head.cfm" />
+
+<h1>ArrayTools.findFirst</h1>
+<hr />
+
+<p>
+	The <strong>findFirst</strong> method will take an array of pretty much anything followed
+	by a bit of Groovy code and return the first item that matches your criteria. The Groovy
+	code must return true or false to indicate if the item currently being inspected from 
+	the source array should be included in the return result.
+</p>
+
+<p>
+	The ability to specify arbitrary conditions allows you to work with complex objects in
+	your array. This example is an array of structures that looks similar to a shopping cart.
+	In this example we want to return the first discounted item we find.
+</p>
 
 <cfset cart = [
 	{
@@ -33,12 +49,27 @@
 	}
 ] />
 
-<strong>Cart:</strong>
-<cfdump var="#cart#" expand="false" />
+<section class="well">
+	<strong>Cart:</strong>
+	<cfdump var="#cart#" expand="false" />
+</section>
 
 <!---
-	Find the first discounted product.
+	Find the first discounted product
 --->
-<strong>Find the first discounted product:</strong>
-<cfset discountedProduct = arrayTools.findFirst(cart, "item.DISCOUNTED == true") />
-<cfdump var="#discountedProduct#" />
+<cfset discountedProducts = application.arrayTools.findFirst(cart, "item.DISCOUNTED == true") />
+
+<section class="well">
+	<p>
+		Now using the following line of code we will search the shopping cart array
+		for the first discounted item.
+
+		<pre>
+			&lt;cfset discountedProducts = application.arrayTools.findFirst(cart, "item.DISCOUNTED == true") /&gt;
+		</pre>
+	</p>
+
+	<cfdump var="#discountedProducts#" />
+</section>
+
+<cfinclude template="../foot.cfm" />

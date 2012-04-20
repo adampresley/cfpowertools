@@ -1,4 +1,22 @@
-<cfset arrayTools = createObject("java", "com.adampresley.cfpowertools.Factory").getArrayTools() />
+<cfinclude template="../head.cfm" />
+
+<h1>ArrayTools.max</h1>
+<hr />
+
+<p>
+	The <strong>max</strong> method will take an array of pretty much anything followed
+	by a bit of optional Groovy code and return the largest item. If you don't pass in
+	a Groovy script to dictate how to compare items it will try to treat it as a primitive 
+	comparison.
+</p>
+
+<p>
+	In this example we will take a shopping cart array of structures and find the most
+	expensive item. The Groovy comparison code will return -1 or 1 if the two items
+	being compared are less than or greater than each other, or it will return zero (0)
+	if the items are the same. In the end the items sorted up to the top as the "largest"
+	will be returned.
+</p>
 
 <cfset cart = [
 	{
@@ -33,12 +51,27 @@
 	}
 ] />
 
-<strong>Cart:</strong>
-<cfdump var="#cart#" expand="false" />
+<section class="well">
+	<strong>Cart:</strong>
+	<cfdump var="#cart#" expand="false" />
+</section>
 
 <!---
 	Get the product with the highest price.
 --->
-<strong>Get Most Expensive Product:</strong>
-<cfset mostExpensiveProduct = arrayTools.max(cart, "item1.PRICE <=> item2.PRICE") />
-<cfdump var="#mostExpensiveProduct#" />
+<cfset mostExpensiveProduct = application.arrayTools.max(cart, "item1.PRICE <=> item2.PRICE") />
+
+<section class="well">
+	<p>
+		Now using the following line of code we will find the most expensive item.
+
+		<pre>
+			&lt;cfset mostExpensiveProduct = application.arrayTools.max(cart, "item1.PRICE <=> item2.PRICE") /&gt;
+		</pre>
+	</p>
+
+	<cfdump var="#mostExpensiveProduct#" />
+</section>
+
+<cfinclude template="../foot.cfm" />
+

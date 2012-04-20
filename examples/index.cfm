@@ -1,19 +1,11 @@
-<h1>CFPowerTools Examples</h1>
+<cfinclude template="head.cfm" />
 
-<h2>Array Tools</h2>
-<ul>
-	<li><a href="/arrayTools/combinations.cfm">Combinations</a></li>
-	<li><a href="/arrayTools/findAll.cfm">Find All</a></li>
-	<li><a href="/arrayTools/findFirst.cfm">Find First</a></li>
-	<li><a href="/arrayTools/groupBy.cfm">Group By</a></li>
-	<li><a href="/arrayTools/intersect.cfm">Intersect</a></li>
-	<li><a href="/arrayTools/removeDuplicates.cfm">Remove Duplicates</a></li>
-	<li><a href="/arrayTools/sort.cfm">Sort</a></li>
-</ul>
+<div class="hero-unit">
+	<h1>CF PowerTools</h1>
+	<p>
+		Welcome to the CF PowerTools example suite. Select your item of
+		interest using the menu to the right. Happy coding!
+	</p>
+</div>
 
-<h2>Collection Tools</h2>
-<ul>
-	<li><a href="/collectionTools/priorityQueue.cfm">Priority Queue</a></li>
-	<li><a href="/collectionTools/stack.cfm">Stack</a></li>
-</ul>
-
+<cfinclude template="foot.cfm" />
