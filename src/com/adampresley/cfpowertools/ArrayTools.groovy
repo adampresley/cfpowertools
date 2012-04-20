@@ -460,7 +460,7 @@ class ArrayTools extends Base
   def removeRange(source, startIndex, endIndex) {
 	  if (source.size() > 0) { 
 		  def actualStart = startIndex.toInteger() - 1
-		  def actualEnd = endIndex.toInteger() - 1
+		  def actualEnd = endIndex.toInteger()
 		  
 		  if (actualEnd <= actualStart || actualEnd <= 1) {
 			  /*
@@ -481,7 +481,7 @@ class ArrayTools extends Base
 				  source.removeRange(actualStart, actualEnd)
 			  }
 			  else {
-				  (actualStart..actualEnd).each {
+				  (actualStart..<actualEnd).each {
 					  source.remove(actualStart)
 				  }
 			  }
