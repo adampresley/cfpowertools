@@ -48,7 +48,9 @@
 							<li><a href="/arrayTools/min.cfm">Min</a></li>
 							<li><a href="/arrayTools/minus.cfm">Minus</a></li>
 							<li><a href="/arrayTools/removeDuplicates.cfm">Remove Duplicates</a></li>
+							<li><a href="/arrayTools/removeRange.cfm">Remove Range</a></li>
 							<li><a href="/arrayTools/sort.cfm">Sort</a></li>
+							<li><a href="/arrayTools/split.cfm">Split</a></li>
 
 							<li class="nav-header">Collection Tools</li>
 							<li><a href="/collectionTools/priorityQueue.cfm">Priority Queue</a></li>

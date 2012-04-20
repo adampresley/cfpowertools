@@ -73,7 +73,7 @@
 
 <section class="well">
 	<p>
-		Using the following line of code we will remove a complex item from the first array.
+		Using the following lines of code we will remove a complex item from the first array.
 
 		<pre>
 			&lt;cfset toRemove = [ 

@@ -15,7 +15,7 @@ BIN = "./bin"
 
 
 TOMCAT_HOSTS = """
-\t\t<Context path="" docBase="{0}/examples" />
+\t\t<Context path="" docBase="{0}/examples" reloadable="true" />
 \t</Host>
 """.format(WHEREAT)
 
