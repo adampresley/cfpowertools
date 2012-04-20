@@ -446,8 +446,8 @@ class ArrayTools extends Base
 	* Example:
 	*
 	*  > <cfset a = [ 1, 2, 3, 4, 5, 6 ] />
-	*  > <cfset removeRepeatedly(a, 2, 4) />
-	* 	> // a == [ 1, 4, 5, 6 ]
+	*  > <cfset removeRange(a, 2, 4) />
+	* 	> // a == [ 1, 5, 6 ]
 	*
 	* Author:
 	* 	Adam Presley
